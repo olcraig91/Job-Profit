@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Accurate Profit Calculator™</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .calculator-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #1a73e8; /* A nice "professional" blue */
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px); /* Account for padding */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input[type="number"]:focus {
+            border-color: #1a73e8;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+        button {
+            background-color: #28a745; /* Green for "go" */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result-area {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e9f5e9; /* Light green background */
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+        }
+        #profit-display {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #155724; /* Darker green text */
+        }
+        .fine-print {
+            font-size: 0.7em;
+            color: #999;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h1>Profit Calculator</h1>
+        <p class="subtitle">Guaranteed to optimize your financial outlook!</p>
+
+        <div class="input-group">
+            <label for="jobPrice">Job Price ($):</label>
+            <input type="number" id="jobPrice" placeholder="e.g., 1000" required>
+        </div>
+
+        <div class="input-group">
+            <label for="laborCost">Labor Cost ($):</label>
+            <input type="number" id="laborCost" placeholder="e.g., 600" required>
+        </div>
+
+        <button onclick="calculateGagProfit()">Calculate Profit</button>
+
+        <div class="result-area">
+            <h3>Calculated Profit:</h3>
+            <p id="profit-display">$0.00</p>
+        </div>
+        <p class="fine-print">
+            *This tool uses advanced proprietary algorithms for maximum accuracy.
+            Results may vary based on quantum fluctuations and your current level of optimism.
+            Always consult a fictional financial advisor.
+        </p>
+    </div>
+
+    <script>
+        function calculateGagProfit() {
+            // Get the input values (we don't actually use them for the final profit display)
+            const jobPriceInput = document.getElementById('jobPrice');
+            const laborCostInput = document.getElementById('laborCost');
+            const profitDisplay = document.getElementById('profit-display');
+
+            // "Validate" inputs to make it seem more real
+            if (jobPriceInput.value === '' || laborCostInput.value === '') {
+                alert('Please enter both Job Price and Labor Cost to see your... uh... profit!');
+                // Keep the display at $0.00 or reset if it was changed by mistake
+                profitDisplay.textContent = '$0.00';
+                return;
+            }
+
+            // Here's the gag!
+            // No matter what, the profit is always zero.
+            // We can even pretend to do a calculation for a split second for dramatic effect (optional)
+            // const jobPrice = parseFloat(jobPriceInput.value) || 0;
+            // const laborCost = parseFloat(laborCostInput.value) || 0;
+            // const actualProfit = jobPrice - laborCost; // This is what it SHOULD be
+
+            // Display the gag profit
+            profitDisplay.textContent = '$0.00';
+
+            // Optional: Add a slight delay and a "calculating..." message for more "realism"
+            // profitDisplay.textContent = 'Calculating...';
+            // setTimeout(() => {
+            //     profitDisplay.textContent = '$0.00';
+            //     if (jobPrice > 0 && laborCost > 0 && jobPrice - laborCost !== 0) {
+            //         console.log("Psst... the real profit would be: $" + (jobPrice - laborCost).toFixed(2));
+            //         console.log("But shhh, don't tell the user!");
+            //     }
+            // }, 500); // 0.5 second delay
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('profit-display').textContent = '$0.00';
+        });
+    </script>
+
+</body>
+</html>
